@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :lessons
     has_many :parrots
-    def index
-        render json: User.all
-    end
+    validates :username, presence: true
+    validates :password, presence: true
+    validates :email, presence: true
 end
