@@ -19,6 +19,17 @@ class LessonsController < ApplicationController
       render json: :edit, status: :unprocessable_entity
     end
   end
+  def get_stages_by_id
+    lesson = Lesson.find_by(id: params[:id])
+    stages = Stage.where(lesson_id: lesson["id"])
+    render json: stages
+  end
+
+  def get_one_stage_by_id
+    lesson = Lesson.find_by(id: params[:lesson_id])
+    stages = Stage.where(lesson_id: lesson["id"])
+    render json: stages
+  end
 
   private
 

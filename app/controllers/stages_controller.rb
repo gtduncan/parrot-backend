@@ -3,6 +3,6 @@ class StagesController < ApplicationController
     render json: Stage.all
   end
   def show
-    render json: Stage.find(params[:id])
+    render json: Stage.find_by(id: params[:id])
   end
 end
